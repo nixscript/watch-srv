@@ -19,26 +19,25 @@
 2. Устанавливаем [termux-api](https://play.google.com/store/apps/details?id=com.termux.api)
 
 3. Заходим в termux, делаем следующее:
+    ```
+    apt update
+    apt upgrade
+    apt install termux-api
+    ```
 
-```
-apt update
-apt upgrade
-apt install termux-api
-```
-
-Это установит обновления, если они имеются, и установит связь termux с termux-api.
+    Это установит обновления, если они имеются, и установит связь termux с termux-api.
 
 4. Устанавливаем git
 
-```
-apt install git
-```
+    ```
+    apt install git
+    ```
 
 5. Клонируем watch-srv
 
-```
-git clone https://git.tuxnix.ru/nixscript/watch-srv
-```
+    ```
+    git clone https://git.tuxnix.ru/nixscript/watch-srv
+    ```
 
 Всё готово к настройке.
 
@@ -59,74 +58,74 @@ git clone https://git.tuxnix.ru/nixscript/watch-srv
 
 1. Создаём директорию
 
-```
-mkdir ~/bin
-```
+    ```
+    mkdir ~/bin
+    ```
 
 2. Копируем туда скрипт
 
-```
-cp ./watch-srv/watch-srv.sh ~/bin/watch-srv.sh
-```
+    ```
+    cp ./watch-srv/watch-srv.sh ~/bin/watch-srv.sh
+    ```
 
 3. Открываем скриптс любимым редактором, раскомментируем
 последнюю строку и заменяем в ней *login* *server.ru* и
 *22* на нужные параметры.
 
-```
-check "login" "server.ru" 22
-```
+    ```
+    check "login" "server.ru" 22
+    ```
 
 4. Генерируем ssh-key и закидываем на сервер
 
-```
-ssh-keygen
-cd .ssh
-rsync ./id_rsa.pub login@server.ru:/home/login/.ssh/termux_key
-ssh login@server.ru cat ~/.ssh/termux_key >>~/.ssh/authorized_keys
-```
+    ```
+    ssh-keygen
+    cd .ssh
+    rsync ./id_rsa.pub login@server.ru:/home/login/.ssh/termux_key
+    ssh login@server.ru cat ~/.ssh/termux_key >>~/.ssh/authorized_keys
+    ```
 
-Две последние команды потребуют ввода пароля.
-После, пароль не потребуется.
+    Две последние команды потребуют ввода пароля.
+    После, пароль не потребуется.
 
 5. Добавляем задачу в *cron*. Помните, редактор
 по-умолчанию - *vi*. Если хотите использовать другой,
 вот вам пример:
 
-```
-export EDITOR="mcedit"; crontab -e
+    ```
+    export EDITOR="mcedit"; crontab -e
 
-# или так
+    # или так
 
-export EDITOR="micro"; crontab -e
-```
+    export EDITOR="micro"; crontab -e
+    ```
 
-Задачу в *cron* добавить легко. К примеру для проверки
-каждую минуту в редакторе пишем такую строку:
+    Задачу в *cron* добавить легко. К примеру для проверки
+    каждую минуту в редакторе пишем такую строку:
 
-```
-* * * * * ~/bin/watch-srv.sh
-```
+    ```
+    * * * * * ~/bin/watch-srv.sh
+    ```
 
-Я решил сделать проверку каждые 30 секунд, поэтому
-пришлось использовать hack:
+    Я решил сделать проверку каждые 30 секунд, поэтому
+    пришлось использовать hack:
 
-```
-* * * * * ~/bin/watch-srv.sh
-* * * * * (sleep 30; ~/bin/watch-srv.sh)
-```
+    ```
+    * * * * * ~/bin/watch-srv.sh
+    * * * * * (sleep 30; ~/bin/watch-srv.sh)
+    ```
 
-Здесл два вызова скрипта, оба действуют через минуту,
-но первый сразу срабатывает, а другой с задержкой в
-30 секунд.
+    Здесл два вызова скрипта, оба действуют через минуту,
+    но первый сразу срабатывает, а другой с задержкой в
+    30 секунд.
 
-Сохраняем и выходим.
+    Сохраняем и выходим.
 
 6. Осталось лишь запустить *cron*
 
-```
-crond
-```
+    ```
+    crond
+    ```
 
 Теперь, если кто-то залогинится на сервере, в
 телефоне появится уведомление такого вида:
@@ -135,20 +134,20 @@ crond
 
 Как видно на скриншоте, имеется три кнопки:
 
-1. Свои - предотвращает постоянное появление
+1. **Свои** - предотвращает постоянное появление
 уведомление до тех пор, пока на сервере не
 разлогинится пользователь. После выхода всех
 пользователей скрипт отрабатывает в стандартном
 режиме.
 
-2. Скопировать - помещает текст уведомления в
+2. **Скопировать** - помещает текст уведомления в
 ситемный буфер обмена смартфона.
 
-3. Получить весь лог - получает весь лог и
-сохраняет его в Downloads/srv-login.log
+3. **Получить весь лог** - получает весь лог и
+сохраняет его в Downloads/srv-login.lo
 
 ### Заключение
 
 Всё достаточно просто. Если есть пожелания,
-предложения, идеи, пишите в [ВК/Nixscript](https://vk.com/nixscript)
+предложения, идеи, пишите в [VK/Nixscript](https://vk.com/nixscript)
 или мне [VK/grigruss](https://vk.com/grigruss).
