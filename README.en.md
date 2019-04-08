@@ -3,7 +3,7 @@
 ![Language](./ru.png)
 [RUS](./README.md)
 
-[![Build Status](https://travis-ci.org/nixscript/watch-srv-en.sh.svg?branch=master)](https://travis-ci.org/nixscript/watch-srv-en.sh)
+[![Build Status](https://travis-ci.org/nixscript/watch-srv.svg?branch=master)](https://travis-ci.org/nixscript/watch-srv.sh)
 
 The script for termux (Android only), monitors the specified server. If someone has logged in to the server, the script issues a notification in the phone.
 
