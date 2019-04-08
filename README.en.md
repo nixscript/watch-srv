@@ -8,7 +8,7 @@ The script for termux (Android only), monitors the specified server. If someone 
 ![ScreenShot](./screenshot.en.png)
 
 1. [Install](#install)
-2. [Configuration](#settings)
+2. [Configuration](#configuration)
 3. [Resume](#resume)
 
 ### Requirements
@@ -49,12 +49,6 @@ Both mc and *micro* are available, so I think there are
 other editors too.
 
 ### Configuration
-
-Есть масса вариантов, оставить скрипт в текущем месте,
-переместить в системную директорию, например */usr*, или
-сделать наиболее логично. Создать директорию *~/bin* и
-скопировать скрипт туда. На примере *~/bin* я и опишу
-настройку.
 
 There are many options to leave the script in the current
 location, move to the system directory, for example */usr*,
