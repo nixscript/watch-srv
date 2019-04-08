@@ -7,8 +7,8 @@
 # Раскомментируйте и исправтье последнюю строку
 
 function check(){
-	srv=$(ssh -p $3 "$1@$2" w -h 2>/dev/null)
-	if (($?>0)); then
+	if ! srv=$(ssh -p "$3" "$1@$2" w -h 2>/dev/null)
+	then
 		termux-notification --title "Нет доступа к $2" --id 10 --button1 "Закрыть" --button1-action "termux-notification-remove 10" --priority high --led-on 800 --led-color FF0000 --content "Проверьте подключение интернет."
 	elif [ ! -z "$srv" ]; then
 		if (($(cat /data/data/com.termux/files/usr/var/log/srvlgn.log)==1)); then exit; fi
