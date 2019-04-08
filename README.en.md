@@ -91,7 +91,7 @@ If you want to use another, here is an example:
 
     ```
     export EDITOR="mcedit"; crontab -e
-    # или так
+    # or that
     export EDITOR="micro"; crontab -e
     ```
     The task in *cron* is easy to add. For example, to check every
@@ -137,6 +137,6 @@ system clipboard.
 
 Everything is quite simple. If you have any suggestions, suggestions,
 ideas, write to [VK@Nixscript](https://vk.com/nixscript)
-or to me [FB@grig.russ](https://facebook.com/grigruss)
-[Instagramm@grigruss](https://instagramm.com/grig.russ)
+or to me [FB@grig.russ](https://facebook.com/grig.russ)
+[Instagram@grigruss](https://instagram.com/grig.russ)
 [e-mail](mailto:grigruss@ya.ru).
