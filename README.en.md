@@ -2,7 +2,7 @@
 
 The script for termux (Android only), monitors the specified server. If someone has logged in to the server, the script issues a notification in the phone.
 
-![ScreenShot](./screenshot.png)
+![ScreenShot](./screenshot.en.png)
 
 1. [Install](#install)
 2. [Configuration](#settings)
@@ -122,7 +122,7 @@ If you want to use another, here is an example:
 Now, if someone logs in on the server, a notification of this type
 will appear in the smartphone:
 
-![ScreenShot](./screenshot.png)
+![ScreenShot](./screenshot.en.png)
 
 As you can see in the screenshot, there are three buttons:
 1. **All right** - prevents the permanent notification to appear
