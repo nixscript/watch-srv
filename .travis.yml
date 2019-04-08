@@ -1,0 +1,16 @@
+language: bash
+
+sudo: false
+
+addons:
+  apt:
+#    sources:
+#    - debian-jessie
+    packages:
+    - shellcheck
+
+script:
+ - shellcheck -s bash ./watch-srv.sh
+
+notifications:
+    webhooks:
