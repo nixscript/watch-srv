@@ -1,5 +1,8 @@
 # watch-srv
 
+![Language](./ru.png)
+[RUS](./README.md)
+
 The script for termux (Android only), monitors the specified server. If someone has logged in to the server, the script issues a notification in the phone.
 
 ![ScreenShot](./screenshot.en.png)
