@@ -9,6 +9,15 @@ The script for termux (Android only), monitors the specified server. If someone 
 
 ![ScreenShot](./screenshot.en.png)
 
+## Updates
+
+1. Added support for multiple servers.
+2. **Attention:** Now it is necessary to specify the notification-id, the fourth parameter.
+Any numeric value that is not repeated on other servers.
+
+-----
+
+
 1. [Install](#install)
 2. [Configuration](#configuration)
 3. [Resume](#resume)
@@ -69,12 +78,15 @@ example *~/bin*.
     cp ./watch-srv/watch-srv.sh ~/bin/watch-srv.sh
     ```
 3. Open script with our favorite editor, uncomment the last
-line and replace the *login* *server.ru* and *22* with
+line and replace the *login* *server.ru* *22* and *0* with
 the required parameters.
 
     ```
-    check "login" "server.ru" 22
+    check "login" "server.ru" 22 0
     ```
+    0 - is a unique identifier for the notification.
+    Each server should be different if you monitor several.
+    For example *0*, *1*, *2* ...
 4. Generate ssh-key and upload to server
 
     ```
