@@ -5,12 +5,13 @@ sudo: false
 addons:
   apt:
     sources:
-    - debian-jessie
+    - debian
     packages:
     - shellcheck
 
 script:
  - shellcheck -s bash ./watch-srv.sh
+ - shellcheck -s bash ./watch-srv-en.sh
 
 notifications:
     webhooks:
